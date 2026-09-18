@@ -6,11 +6,6 @@
 
   <title>Infinity SAT Service</title>
 
-  <meta
-    name="description"
-    content="Infinity SAT Service - خدمات واشتراكات تلفزيونية"
-  >
-
   <style>
     * {
       box-sizing: border-box;
@@ -18,553 +13,295 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: Arial, "Tahoma", sans-serif;
-      background: #070d19;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #050912;
       color: white;
       line-height: 1.7;
     }
 
     a {
       text-decoration: none;
-      color: inherit;
     }
 
     /* HEADER */
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      padding: 15px 5%;
-
-      background: rgba(5, 10, 20, 0.96);
-      border-bottom: 1px solid #24334b;
+      width: 100%;
+      background: #080d18;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .logo {
-      font-size: 23px;
-      font-weight: 900;
-      color: #ffd21c;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
     }
 
     .logo span {
-      color: white;
+      color: #00d9ff;
     }
 
-    .actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
+    /* TOP IMAGE */
+    .top-image {
+      width: 100%;
+      background: #050912;
+      overflow: hidden;
     }
 
-    .whatsapp {
-      background: #13bd75;
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-weight: bold;
-    }
-
-    .language {
-      background: #111d31;
-      border: 1px solid #35445d;
-      padding: 10px 16px;
-      border-radius: 14px;
-      color: white;
+    .top-image img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
     }
 
     /* HERO */
-
     .hero {
-      min-height: 600px;
-
-      display: flex;
-      align-items: center;
-
-      position: relative;
-      overflow: hidden;
-
+      text-align: center;
+      padding: 60px 20px;
       background:
-        radial-gradient(
-          circle at 80% 40%,
-          rgba(255, 210, 28, 0.20),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #111c30,
-          #050a13
-        );
-    }
-
-    .hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(5,9,18,.95),
-          rgba(5,9,18,.65),
-          rgba(5,9,18,.25)
-        );
-
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-
-      width: 90%;
-      max-width: 800px;
-
-      margin-right: 7%;
+        radial-gradient(circle at top, rgba(0,217,255,0.12), transparent 45%),
+        #050912;
     }
 
     .badge {
       display: inline-block;
-
-      padding: 8px 16px;
-
-      border-radius: 50px;
-
-      color: #ffd21c;
-
-      background: rgba(255, 210, 28, .10);
-
-      border: 1px solid rgba(255, 210, 28, .35);
-
+      padding: 8px 18px;
+      margin-bottom: 18px;
+      border-radius: 30px;
+      background: rgba(0,217,255,0.1);
+      border: 1px solid rgba(0,217,255,0.3);
+      color: #00d9ff;
       font-weight: bold;
-
-      margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: clamp(42px, 8vw, 75px);
-
-      line-height: 1.15;
-
-      margin-bottom: 20px;
-
-      font-weight: 900;
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      font-size: 19px;
-
-      color: #d0d7e2;
-
-      max-width: 650px;
+      max-width: 700px;
+      margin: auto;
+      color: #b9c1cf;
+      font-size: 18px;
     }
 
+    /* BUTTONS */
     .buttons {
-      display: flex;
-
-      gap: 12px;
-
       margin-top: 30px;
-
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 14px 26px;
-
-      border-radius: 15px;
-
-      font-weight: 900;
-
       display: inline-block;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
     }
 
     .primary {
-      background: #ffd21c;
-
-      color: #090f19;
-
-      box-shadow:
-        0 8px 25px rgba(255, 210, 28, .20);
+      background: #00d9ff;
+      color: #031018;
     }
 
     .secondary {
-      background: #111d31;
-
-      border: 1px solid #394a65;
+      background: #16c172;
+      color: white;
     }
 
     /* STATS */
-
     .stats {
-      width: 90%;
       max-width: 1000px;
-
-      margin: -35px auto 0;
-
-      position: relative;
-      z-index: 10;
-
+      margin: 0 auto;
+      padding: 20px;
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
     }
 
     .stat {
-      background: #111b2d;
-
-      border: 1px solid #293b56;
-
-      border-radius: 20px;
-
+      background: #0b1220;
+      padding: 25px 15px;
+      border-radius: 15px;
       text-align: center;
-
-      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .stat strong {
       display: block;
-
-      color: #ffd21c;
-
-      font-size: 27px;
+      font-size: 30px;
+      color: #00d9ff;
     }
 
     .stat span {
-      color: #aab5c5;
+      color: #b9c1cf;
     }
 
     /* SECTIONS */
-
-    section {
-      scroll-margin-top: 80px;
-    }
-
     .section {
-      padding: 90px 5%;
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .section-title {
       text-align: center;
-
       margin-bottom: 40px;
     }
 
-    .section-title span {
-      color: #ffd21c;
-
-      font-weight: bold;
-    }
-
     .section-title h2 {
-      font-size: 35px;
-
-      margin: 5px 0;
+      font-size: 34px;
+      margin-bottom: 10px;
     }
 
     .section-title p {
-      color: #9faabd;
+      color: #9da7b7;
     }
 
-    /* CARDS */
-
-    .cards {
-      max-width: 1100px;
-
-      margin: auto;
-
+    /* PACKAGES */
+    .packages {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .card {
-      position: relative;
-
-      background:
-        linear-gradient(
-          150deg,
-          #142137,
-          #0b1321
-        );
-
-      border: 1px solid #293b56;
-
-      border-radius: 23px;
-
-      padding: 28px;
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.20);
+    .package {
+      background: #0b1220;
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .card.featured {
-      border-color: #d9b51c;
-    }
-
-    .popular {
-      position: absolute;
-
-      top: 15px;
-      left: 15px;
-
-      background: #ffd21c;
-
-      color: #101722;
-
-      padding: 4px 10px;
-
-      border-radius: 50px;
-
-      font-size: 12px;
-
-      font-weight: 900;
-    }
-
-    .card-head {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      padding-bottom: 15px;
-
-      border-bottom: 1px solid #27374e;
-    }
-
-    .card-head h3 {
+    .package h3 {
       font-size: 25px;
-    }
-
-    .card-head span {
-      color: #aeb8c7;
+      margin-bottom: 15px;
     }
 
     .price {
-      color: #ffd21c;
-
-      font-size: 48px;
-
-      font-weight: 900;
-
-      margin: 18px 0;
-    }
-
-    .price small {
-      font-size: 16px;
-
-      color: #d0d6df;
-    }
-
-    .card ul {
-      list-style: none;
-
-      margin-bottom: 22px;
-    }
-
-    .card li {
-      padding: 7px 0;
-
-      color: #d5dbe4;
-
-      border-bottom:
-        1px solid rgba(255,255,255,.05);
-    }
-
-    .card li::before {
-      content: "✓";
-
-      color: #ffd21c;
-
+      font-size: 32px;
       font-weight: bold;
-
-      margin-left: 8px;
+      color: #00d9ff;
+      margin-bottom: 20px;
     }
 
-    .card-btn {
-      display: block;
+    .package p {
+      color: #b9c1cf;
+      margin-bottom: 20px;
+    }
 
-      text-align: center;
-
-      background: #ffd21c;
-
-      color: #090f18;
-
-      padding: 13px;
-
-      border-radius: 13px;
-
-      font-weight: 900;
+    .package .btn {
+      width: 100%;
     }
 
     /* PAYMENT */
-
     .payment {
-      background: #0a1220;
-    }
-
-    .payment-grid {
-      max-width: 900px;
-
-      margin: auto;
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 15px;
-    }
-
-    .payment-card {
-      background: #111c2e;
-
-      border: 1px solid #293b56;
-
+      background: #080e1a;
       border-radius: 20px;
-
-      padding: 25px;
-
+      padding: 35px 20px;
       text-align: center;
     }
 
-    .payment-card strong {
-      display: block;
-
-      color: #ffd21c;
-
-      font-size: 25px;
-
-      margin-bottom: 5px;
+    .payment-items {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 25px;
     }
 
-    .payment-card span {
-      color: #aeb8c7;
+    .payment-item {
+      background: #111a2a;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: bold;
     }
 
     /* CTA */
-
     .cta {
       text-align: center;
-
-      padding: 80px 5%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,210,28,.12),
-          transparent 55%
-        );
+      padding: 70px 20px;
+      background: linear-gradient(
+        180deg,
+        #050912,
+        #091426
+      );
     }
 
     .cta h2 {
-      font-size: 40px;
+      font-size: 35px;
+      margin-bottom: 15px;
     }
 
     .cta p {
-      color: #aeb8c7;
-
-      margin: 8px 0 25px;
+      color: #b9c1cf;
+      margin-bottom: 25px;
     }
 
     /* FOOTER */
-
     footer {
-      border-top: 1px solid #1e2c42;
-
-      padding: 30px 5%;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      color: #8995a7;
+      text-align: center;
+      padding: 25px 15px;
+      background: #03060d;
+      color: #8e98a8;
+      font-size: 14px;
     }
 
     /* MOBILE */
-
-    @media (max-width: 800px) {
-
-      header {
-        padding: 12px 4%;
-      }
+    @media (max-width: 768px) {
 
       .logo {
-        font-size: 18px;
+        font-size: 19px;
       }
 
-      .whatsapp,
-      .language {
-        padding: 8px 12px;
-
-        font-size: 12px;
+      .top-image img {
+        max-height: 350px;
       }
 
       .hero {
-        min-height: 560px;
+        padding: 45px 15px;
       }
 
-      .hero-content {
-        margin: auto;
-
-        text-align: center;
+      .hero h1 {
+        font-size: 32px;
       }
 
       .hero p {
         font-size: 16px;
       }
 
-      .buttons {
-        justify-content: center;
-      }
-
       .stats {
         grid-template-columns: 1fr;
-
-        margin-top: -20px;
       }
 
-      .cards {
+      .packages {
         grid-template-columns: 1fr;
-      }
-
-      .payment-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 65px 5%;
       }
 
       .section-title h2 {
         font-size: 28px;
       }
 
-      footer {
-        flex-direction: column;
+      .cta h2 {
+        font-size: 28px;
+      }
 
-        gap: 8px;
-
-        text-align: center;
+      .btn {
+        width: 100%;
+        max-width: 350px;
       }
     }
   </style>
@@ -573,72 +310,49 @@
 <body>
 
   <!-- HEADER -->
-
   <header>
-
-    <a href="#" class="logo">
+    <div class="logo">
       INFINITY <span>SAT SERVICE</span>
-    </a>
-
-    <div class="actions">
-
-      <a
-        class="whatsapp"
-        href="https://wa.me/213XXXXXXXXX"
-        target="_blank"
-      >
-        WhatsApp
-      </a>
-
-      <a
-        class="language"
-        href="#packages"
-      >
-        العربية
-      </a>
-
     </div>
-
   </header>
 
 
-  <!-- HERO -->
+  <!-- الصورة في أعلى الموقع -->
+  <div class="top-image">
+    <img
+      src="E15C8C7D-DCF0-4C92-B8B8-C5E97D9.png"
+      alt="Infinity SAT Service">
+  </div>
 
+
+  <!-- HERO -->
   <section class="hero">
 
-    <div class="hero-content">
+    <div class="badge">
+      🛰️ INFINITY SAT SERVICE
+    </div>
 
-      <div class="badge">
-        🛰️ INFINITY SAT SERVICE
-      </div>
+    <h1>
+      ترفيهك يبدأ من هنا
+    </h1>
 
-      <h1>
-        ترفيهك يبدأ من هنا
-      </h1>
+    <p>
+      استمتع بخدماتنا واشتراكاتنا المتنوعة
+      بجودة عالية وتجديد سريع.
+    </p>
 
-      <p>
-        اكتشف مجموعة متنوعة من الباقات والخدمات
-        واستمتع بتجربة مميزة بجودة عالية.
-      </p>
+    <div class="buttons">
 
-      <div class="buttons">
+      <a href="#packages" class="btn primary">
+        🔥 شاهد الباقات
+      </a>
 
-        <a
-          href="#packages"
-          class="btn primary"
-        >
-          🔥 شاهد الباقات
-        </a>
-
-        <a
-          href="https://wa.me/213XXXXXXXXX"
-          target="_blank"
-          class="btn secondary"
-        >
-          💬 تواصل معنا
-        </a>
-
-      </div>
+      <a
+        href="https://wa.me/213549839677"
+        target="_blank"
+        class="btn secondary">
+        💬 تواصل معنا
+      </a>
 
     </div>
 
@@ -646,227 +360,102 @@
 
 
   <!-- STATS -->
-
-  <div class="stats">
+  <section class="stats">
 
     <div class="stat">
-
       <strong>4K</strong>
-
-      <span>
-        جودة عالية
-      </span>
-
+      <span>جودة عالية</span>
     </div>
 
     <div class="stat">
-
       <strong>24/7</strong>
-
-      <span>
-        دعم فني
-      </span>
-
+      <span>خدمة متواصلة</span>
     </div>
 
     <div class="stat">
-
       <strong>⚡</strong>
-
-      <span>
-        تجديد سريع
-      </span>
-
+      <span>تجديد سريع</span>
     </div>
 
-  </div>
+  </section>
 
 
   <!-- PACKAGES -->
-
-  <section
-    id="packages"
-    class="section"
-  >
+  <section class="section" id="packages">
 
     <div class="section-title">
-
-      <span>
-        INFINITY SAT SERVICE
-      </span>
-
-      <h2>
-        اختر الباقة المناسبة
-      </h2>
-
+      <h2>📡 باقاتنا</h2>
       <p>
-        باقات متنوعة بأسعار مناسبة
+        اختر الاشتراك المناسب لك
       </p>
-
     </div>
 
+    <div class="packages">
 
-    <div class="cards">
+      <div class="package">
 
-
-      <!-- VIP -->
-
-      <article class="card">
-
-        <div class="card-head">
-
-          <h3>
-            VIP
-          </h3>
-
-          <span>
-            شهر
-          </span>
-
-        </div>
+        <h3>VIP</h3>
 
         <div class="price">
-          500
-          <small>دج</small>
+          500 دج
         </div>
 
-        <ul>
-
-          <li>
-            قنوات متنوعة
-          </li>
-
-          <li>
-            جودة عالية
-          </li>
-
-          <li>
-            دعم فني
-          </li>
-
-          <li>
-            تجديد سريع
-          </li>
-
-        </ul>
+        <p>
+          اشتراك شهري
+        </p>
 
         <a
-          class="card-btn"
-          href="https://wa.me/213XXXXXXXXX?text=السلام%20عليكم%20أريد%20اشتراك%20VIP"
+          href="https://wa.me/213549839677"
           target="_blank"
-        >
-          جدد اشتراكك الآن
+          class="btn primary">
+          جدد الآن
         </a>
 
-      </article>
+      </div>
 
 
-      <!-- ELITE -->
+      <div class="package">
 
-      <article class="card featured">
-
-        <div class="popular">
-          الأكثر طلباً
-        </div>
-
-        <div class="card-head">
-
-          <h3>
-            ELITE
-          </h3>
-
-          <span>
-            شهر
-          </span>
-
-        </div>
+        <h3>ELITE</h3>
 
         <div class="price">
-          700
-          <small>دج</small>
+          700 دج
         </div>
 
-        <ul>
-
-          <li>
-            محتوى متنوع
-          </li>
-
-          <li>
-            جودة عالية
-          </li>
-
-          <li>
-            دعم ومتابعة
-          </li>
-
-          <li>
-            تجديد سريع
-          </li>
-
-        </ul>
+        <p>
+          اشتراك شهري مميز
+        </p>
 
         <a
-          class="card-btn"
-          href="https://wa.me/213XXXXXXXXX?text=السلام%20عليكم%20أريد%20اشتراك%20ELITE"
+          href="https://wa.me/213549839677"
           target="_blank"
-        >
-          جدد اشتراكك الآن
+          class="btn primary">
+          جدد الآن
         </a>
 
-      </article>
+      </div>
 
 
-      <!-- FUNDAM -->
+      <div class="package">
 
-      <article class="card">
-
-        <div class="card-head">
-
-          <h3>
-            FUNDAM
-          </h3>
-
-          <span>
-            شهر
-          </span>
-
-        </div>
+        <h3>FUNDAM</h3>
 
         <div class="price">
-          500
-          <small>دج</small>
+          500 دج
         </div>
 
-        <ul>
-
-          <li>
-            قنوات متنوعة
-          </li>
-
-          <li>
-            تحديث مستمر
-          </li>
-
-          <li>
-            دعم فني
-          </li>
-
-          <li>
-            تجديد سريع
-          </li>
-
-        </ul>
+        <p>
+          اشتراك شهري
+        </p>
 
         <a
-          class="card-btn"
-          href="https://wa.me/213549839677?text=السلام%20عليكم%20أريد%20اشتراك%20FUNDAM"
+          href="https://wa.me/213549839677"
           target="_blank"
-        >
-          جدد اشتراكك الآن
+          class="btn primary">
+          جدد الآن
         </a>
 
-      </article>
+      </div>
 
     </div>
 
@@ -874,66 +463,31 @@
 
 
   <!-- PAYMENT -->
+  <section class="section">
 
-  <section
-    id="payment"
-    class="section payment"
-  >
+    <div class="payment">
 
-    <div class="section-title">
+      <div class="section-title">
+        <h2>💳 طرق الدفع</h2>
 
-      <span>
-        PAYMENT
-      </span>
-
-      <h2>
-        طرق الدفع
-      </h2>
-
-      <p>
-        اطلب معلومات الدفع عبر WhatsApp
-      </p>
-
-    </div>
-
-
-    <div class="payment-grid">
-
-      <div class="payment-card">
-
-        <strong>
-          CCP
-        </strong>
-
-        <span>
-          الدفع عبر CCP
-        </span>
-
+        <p>
+          نوفر لك عدة طرق للدفع
+        </p>
       </div>
 
+      <div class="payment-items">
 
-      <div class="payment-card">
+        <div class="payment-item">
+          💰 CCP
+        </div>
 
-        <strong>
-          BaridiMob
-        </strong>
+        <div class="payment-item">
+          📱 BaridiMob
+        </div>
 
-        <span>
-          الدفع عبر BaridiMob
-        </span>
-
-      </div>
-
-
-      <div class="payment-card">
-
-        <strong>
-          WhatsApp
-        </strong>
-
-        <span>
-          تأكيد الطلب والتجديد
-        </span>
+        <div class="payment-item">
+          💬 WhatsApp
+        </div>
 
       </div>
 
@@ -943,40 +497,32 @@
 
 
   <!-- CTA -->
-
   <section class="cta">
 
     <h2>
-      جاهز للتجديد؟
+      🔥 جاهز للاستمتاع؟
     </h2>
 
     <p>
-      جدد اشتراكك الآن مع
-      Infinity SAT Service
+      جدد اشتراكك الآن واستمتع بخدمات Infinity SAT Service.
     </p>
 
     <a
-      href="https://wa.me/213XXXXXXXXX?text=السلام%20عليكم%20أريد%20تجديد%20اشتراكي"
+      href="https://wa.me/213549839677"
       target="_blank"
-      class="btn primary"
-    >
-      🔥 جدد اشتراكك الآن
+      class="btn secondary">
+      💬 تجديد الاشتراك الآن
     </a>
 
   </section>
 
 
   <!-- FOOTER -->
-
   <footer>
 
-    <div class="logo">
-      INFINITY <span>SAT SERVICE</span>
-    </div>
-
-    <p>
-      © 2026 Infinity SAT Service
-    </p>
+    © 2026 Infinity SAT Service
+    <br>
+    جميع الحقوق محفوظة
 
   </footer>
 
