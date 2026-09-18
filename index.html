@@ -1,51 +1,767 @@
-/* شبكة الصور */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1400px;
-  margin: auto;
-  padding: 0 10px;
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INFINITY SAT SERVICE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* بطاقات الصور */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+  color: #fff;
+  background:
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.78)),
+    url("E15C8C7D-DCF0-4C92-B8B8-C5E97D9CB8FA.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #25d366;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hero-content {
+  max-width: 850px;
+  background: rgba(0,0,0,.45);
+  padding: 45px 25px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 50px rgba(0,0,0,.5);
+}
+
+.hero h1 {
+  font-size: clamp(35px, 7vw, 70px);
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: #25d366;
+}
+
+.hero p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #eee;
+  margin-bottom: 30px;
+}
+
+.main-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 8px 25px rgba(37,211,102,.3);
+  transition: .3s;
+}
+
+.main-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* STATS */
+.stats {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.stat {
+  background: rgba(0,0,0,.65);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.stat h2 {
+  color: #25d366;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+/* TITLES */
+.section-title {
+  text-align: center;
+  margin: 70px 20px 35px;
+}
+
+.section-title h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #ccc;
+}
+
+/* PACKAGES */
+.packages {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.package {
+  background: rgba(10,10,10,.82);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 25px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  transition: .3s;
+}
+
+.package:hover {
+  transform: translateY(-7px);
+}
+
+.package h3 {
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 38px;
+  color: #25d366;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.package p {
+  color: #ddd;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+/* GALLERY */
+.gallery-section {
+  max-width: 1450px;
+  margin: auto;
+  padding: 0 15px 70px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
-  background: #111;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 20px;
+  background: #080808;
+  box-shadow: 0 12px 35px rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,.1);
 }
 
-/* تكبير الصور */
 .gallery-item img {
   width: 100%;
-  height: 380px;
-  object-fit: cover;
+  height: 390px;
   display: block;
-  transition: transform 0.4s ease;
+  object-fit: contain;
+  background: #050505;
+  transition: transform .4s ease;
 }
 
-/* الهاتف */
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* زر داخل الصورة */
+.order-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+
+  padding: 13px 30px;
+  border-radius: 35px;
+
+  font-size: 17px;
+  font-weight: bold;
+  white-space: nowrap;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,.6);
+  transition: .25s;
+}
+
+.order-btn:hover {
+  transform: translateX(-50%) scale(1.06);
+}
+
+/* PAYMENT */
+.payment {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px 70px;
+}
+
+.payment-box {
+  background: rgba(0,0,0,.78);
+  border-radius: 25px;
+  padding: 35px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.payment-box p {
+  font-size: 18px;
+  line-height: 2;
+  color: #ddd;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 70px 20px;
+  background: rgba(0,0,0,.7);
+}
+
+.cta h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+  background: #050505;
+  text-align: center;
+  padding: 30px 20px;
+  color: #aaa;
+}
+
+footer strong {
+  color: #25d366;
+}
+
+/* TABLET */
 @media (max-width: 900px) {
+
+  .packages {
+    grid-template-columns: repeat(2,1fr);
+  }
+
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 18px;
   }
 
   .gallery-item img {
-    height: 330px;
+    height: 350px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3,1fr);
   }
 }
 
-/* الهاتف الصغير */
-@media (max-width: 500px) {
+/* PHONE */
+@media (max-width: 600px) {
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar a {
+    display: none;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 40px 15px;
+  }
+
+  .hero-content {
+    padding: 35px 18px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .packages {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .gallery-item img {
-    height: 420px;
+    height: 430px;
+  }
+
+  .order-btn {
+    bottom: 15px;
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+
+  .payment-box {
+    padding: 25px 18px;
   }
 }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="navbar">
+    <div class="logo">
+      INFINITY <span>SAT SERVICE</span>
+    </div>
+
+    <nav>
+      <a href="#packages">الباقات</a>
+      <a href="#gallery">العروض</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+
+    <h1>
+      INFINITY <span>SAT</span>
+    </h1>
+
+    <p>
+      خدمات الاشتراكات والعروض المميزة
+      <br>
+      مشاهدة المباريات والقنوات بجودة عالية
+    </p>
+
+    <a
+      class="main-btn"
+      href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20اشتراك"
+    >
+      اطلب الآن عبر WhatsApp
+    </a>
+
+  </div>
+</section>
+
+
+<!-- STATS -->
+<section class="stats">
+
+  <div class="stat">
+    <h2>24/7</h2>
+    <p>خدمة متواصلة</p>
+  </div>
+
+  <div class="stat">
+    <h2>HD</h2>
+    <p>جودة عالية</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>دعم ومتابعة</p>
+  </div>
+
+</section>
+
+
+<!-- PACKAGES -->
+<div class="section-title" id="packages">
+  <h2>الباقات المتوفرة</h2>
+  <p>اختر العرض المناسب لك</p>
+</div>
+
+<section class="packages">
+
+  <div class="package">
+    <h3>VIP</h3>
+    <div class="price">500 دج</div>
+    <p>
+      اشتراك VIP<br>
+      جودة ممتازة<br>
+      دعم ومتابعة
+    </p>
+
+    <a
+      class="main-btn"
+      href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20اشتراك%20VIP"
+    >
+      اطلب الآن
+    </a>
+  </div>
+
+
+  <div class="package">
+    <h3>ELITE</h3>
+    <div class="price">700 دج</div>
+    <p>
+      اشتراك ELITE<br>
+      جودة ممتازة<br>
+      دعم ومتابعة
+    </p>
+
+    <a
+      class="main-btn"
+      href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20اشتراك%20ELITE"
+    >
+      اطلب الآن
+    </a>
+  </div>
+
+
+  <div class="package">
+    <h3>FUNDAM</h3>
+    <div class="price">500 دج</div>
+    <p>
+      اشتراك FUNDAM<br>
+      جودة ممتازة<br>
+      دعم ومتابعة
+    </p>
+
+    <a
+      class="main-btn"
+      href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20اشتراك%20FUNDAM"
+    >
+      اطلب الآن
+    </a>
+  </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<div class="section-title" id="gallery">
+  <h2>العروض المتوفرة</h2>
+  <p>اضغط على «اطلب الآن» للتواصل معنا عبر WhatsApp</p>
+</div>
+
+<section class="gallery-section">
+
+<div class="gallery-grid">
+
+<!-- 1 -->
+<div class="gallery-item">
+<img src="att.0rXQwXcx2HBxq-S-jJ1qjZATE0HOykiWWU0i-9et6xg.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 2 -->
+<div class="gallery-item">
+<img src="att.1iPyRlLZoBvvA08EL4o_lGoo9W9C8-gXUDKTTYoySAE.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 3 -->
+<div class="gallery-item">
+<img src="att.2s-n0Na9ecLfBz_jDhdgb3LlkOfpO1qu0qRPltkuQRo.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 4 -->
+<div class="gallery-item">
+<img src="att.5oRHsYcHJ-58SiFt8LQTH9-jVhEBoBdu4S1ZOm4t9c4.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 5 -->
+<div class="gallery-item">
+<img src="att.ARTkYHxLoPIcWCntVFd2e8tsdW-Q6JWXtFNqHZXbkH0.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 6 -->
+<div class="gallery-item">
+<img src="att.Az8bJEi84a8kbfl23iyBxXzXFK7QvHuQTqxaoq8dYUY.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 7 -->
+<div class="gallery-item">
+<img src="att.B9osj1G4cbqZoTqzB6wiI7NY_SU3ZkIEeMPXHjRurFU.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 8 -->
+<div class="gallery-item">
+<img src="att.CNgvWWlck6C7LmVWFtGxbs-3fo6u1cWhLYNPEfJqxpw.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 9 -->
+<div class="gallery-item">
+<img src="att.DyA2_P9efqqt1h13-6p1_a3wWmtpZbTi7NOFXSnF7S4.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 10 -->
+<div class="gallery-item">
+<img src="att.HS5ci1nbePJZj9GTvzbAjaw3w1W6Zho1RuCqRf0jpYQ.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 11 -->
+<div class="gallery-item">
+<img src="att.HblHmxMffMGvoEHINBN5SiBb7YI-jviKiqThgvy5Azo.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 12 -->
+<div class="gallery-item">
+<img src="att.Jg8Wld30nhfMwF2YBwenaBtUaw8aF9-ETLxZDTscb80.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 13 -->
+<div class="gallery-item">
+<img src="att.L065dakyrBKW3QPgoiliAqDdb_swJmI4CiDe6RJODNA.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 14 -->
+<div class="gallery-item">
+<img src="att.MzbjzyQpDR6A4_p6BMcv-U8v_UiVqEcY7y0Pw0rGs6w.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 15 -->
+<div class="gallery-item">
+<img src="att.V2nQOHSU7UasWHbepSGGT7trW_2G1fju3XwHhihiTb8.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 16 -->
+<div class="gallery-item">
+<img src="att.XWLhe6vAAcnVdXFhohOFi6LzE4mNx5tbdV1cqWNTKh8.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 17 -->
+<div class="gallery-item">
+<img src="att.ZzyFLVFIW5YvWapYBC-wCz1FeAb6fxeC_EgLf2m70pk.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 18 -->
+<div class="gallery-item">
+<img src="att.c-lPTHFFPblfOUPGpsiQVuK-ds_HhEfOx_hoSFtofPY.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 19 -->
+<div class="gallery-item">
+<img src="att.jhbitAOq1Zx6Nqt1YvjzMWCKT3d-qgjqjR4kf_aAYtM.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 20 -->
+<div class="gallery-item">
+<img src="att.mvqI61OVxKLkT5wSVmnjaYfjjL7hHsYVcXwmhr_Pf7w.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 21 -->
+<div class="gallery-item">
+<img src="att.nmIqt5DRY-Lx1v3ZtYKw9Lxm-JSANHh9nwPsAgZB-AY.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 22 -->
+<div class="gallery-item">
+<img src="att.oowHg5gnVOvVSXlxFPnxjF86ktAWr7uURM18vcsCrmE.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 23 -->
+<div class="gallery-item">
+<img src="att.qoOtHEbs4xOzd9AFpOUvUQ8ErG_2-o9LGkiJapTd5Sw.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 24 -->
+<div class="gallery-item">
+<img src="att.t8l3HIBg0KnIG22-aJ_3_1qfsQOOmxStzjb-CW7Z70g.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 25 -->
+<div class="gallery-item">
+<img src="att.tPK0MENcwVUn5WNML5G3v-9tNNaPSzQI1TdhWlkWV9g.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 26 -->
+<div class="gallery-item">
+<img src="att.tva6CkdurkNUD7_xGd2DSt1MTXijqM-63mR2syx-5IE.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 27 -->
+<div class="gallery-item">
+<img src="att.ue20DC3GMKG3apJJvFjhaUrp9hEdNmD7dXojmIVf1ag.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+<!-- 28 -->
+<div class="gallery-item">
+<img src="att.xX8hPggFZ1zqhGzRIzWk7ZBuTo-zwONQ7IB0RKXSuWs.jpeg">
+<a class="order-btn" href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">اطلب الآن</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- PAYMENT -->
+<div class="section-title">
+  <h2>طرق الدفع</h2>
+  <p>بعد اختيار الاشتراك تواصل معنا عبر WhatsApp</p>
+</div>
+
+<section class="payment">
+
+  <div class="payment-box">
+
+    <p>
+      اختر الباقة المناسبة لك ثم اضغط على زر
+      <strong>اطلب الآن</strong>
+      للتواصل معنا.
+      <br>
+      سيتم توجيهك مباشرة إلى WhatsApp.
+    </p>
+
+    <br>
+
+    <a
+      class="main-btn"
+      href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20معلومات%20عن%20الاشتراكات"
+    >
+      تواصل معنا
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="contact">
+
+  <h2>تجديد الاشتراكات</h2>
+
+  <p>
+    لتجديد اشتراكك أو للاستفسار عن العروض المتوفرة
+  </p>
+
+  <a
+    class="main-btn"
+    href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20تجديد%20اشتراكي"
+  >
+    تجديد الاشتراك
+  </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    © 2026 <strong>INFINITY SAT SERVICE</strong>
+  </p>
+
+  <p>
+    جميع الحقوق محفوظة
+  </p>
+</footer>
+
+</body>
+</html>
