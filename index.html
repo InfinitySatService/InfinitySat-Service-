@@ -1,621 +1,301 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GALLERY -->
+<section class="gallery-section">
+  <h2>العروض المتوفرة</h2>
 
-  <title>Infinity SAT Service</title>
+  <div class="gallery-grid">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Tahoma, sans-serif;
-      background: #050912;
-      color: white;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* HEADER */
-    header {
-      width: 100%;
-      background: #080d18;
-      padding: 18px 20px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: #00d9ff;
-    }
-
-    /* TOP IMAGE */
-    .top-image {
-      width: 100%;
-      background: #050912;
-      overflow: hidden;
-    }
-
-    .top-image img {
-      width: 100%;
-      height: auto;
-      max-height: 500px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background:
-        radial-gradient(circle at top, rgba(0,217,255,0.12), transparent 45%),
-        #050912;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 18px;
-      margin-bottom: 18px;
-      border-radius: 30px;
-      background: rgba(0,217,255,0.1);
-      border: 1px solid rgba(0,217,255,0.3);
-      color: #00d9ff;
-      font-weight: bold;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #b9c1cf;
-      font-size: 18px;
-    }
-
-    /* BUTTONS */
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .primary {
-      background: #00d9ff;
-      color: #031018;
-    }
-
-    .secondary {
-      background: #16c172;
-      color: white;
-    }
-
-    /* STATS */
-    .stats {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .stat {
-      background: #0b1220;
-      padding: 25px 15px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 30px;
-      color: #00d9ff;
-    }
-
-    .stat span {
-      color: #b9c1cf;
-    }
-
-    /* SECTIONS */
-    .section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #9da7b7;
-    }
-
-    /* PACKAGES */
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .package {
-      background: #0b1220;
-      border-radius: 18px;
-      padding: 30px 20px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .package h3 {
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      font-size: 32px;
-      font-weight: bold;
-      color: #00d9ff;
-      margin-bottom: 20px;
-    }
-
-    .package p {
-      color: #b9c1cf;
-      margin-bottom: 20px;
-    }
-
-    .package .btn {
-      width: 100%;
-    }
-
-    /* PAYMENT */
-    .payment {
-      background: #080e1a;
-      border-radius: 20px;
-      padding: 35px 20px;
-      text-align: center;
-    }
-
-    .payment-items {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .payment-item {
-      background: #111a2a;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    /* CTA */
-    .cta {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(
-        180deg,
-        #050912,
-        #091426
-      );
-    }
-
-    .cta h2 {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      color: #b9c1cf;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 25px 15px;
-      background: #03060d;
-      color: #8e98a8;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-
-      .logo {
-        font-size: 19px;
-      }
-
-      .top-image img {
-        max-height: 350px;
-      }
-
-      .hero {
-        padding: 45px 15px;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .packages {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2 {
-        font-size: 28px;
-      }
-
-      .cta h2 {
-        font-size: 28px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 350px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo">
-      INFINITY <span>SAT SERVICE</span>
+    <div class="gallery-item">
+      <img src="att.0rXQwXcx2HBxq-S-jJ1qjZATE0HOykiWWU0i-9et6xg.jpeg" alt="عرض 1">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
     </div>
-  </header>
 
+    <div class="gallery-item">
+      <img src="att.1iPyRlLZoBvvA08EL4o_lGoo9W9C8-gXUDKTTYoySAE.jpeg" alt="عرض 2">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
 
-  <!-- الصورة في أعلى الموقع -->
-  <div class="top-image">
-    <img
-     src="E15C8C7D-DCF0-4C92-B8B8-C5E97D9CB8FA.png" alt="Infinity SAT Service">
-      alt="Infinity SAT Service">
+    <div class="gallery-item">
+      <img src="att.2s-n0Na9ecLfBz_jDhdgb3LlkOfpO1qu0qRPltkuQRo.jpeg" alt="عرض 3">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.5oRHsYcHJ-58SiFt8LQTH9-jVhEBoBdu4S1ZOm4t9c4.jpeg" alt="عرض 4">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.ARTkYHxLoPIcWCntVFd2e8tsdW-Q6JWXtFNqHZXbkH0.jpeg" alt="عرض 5">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.Az8bJEi84a8kbfl23iyBxXzXFK7QvHuQTqxaoq8dYUY.jpeg" alt="عرض 6">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.B9osj1G4cbqZoTqzB6wiI7NY_SU3ZkIEeMPXHjRurFU.jpeg" alt="عرض 7">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.CNgvWWlck6C7LmVWFtGxbs-3fo6u1cWhLYNPEfJqxpw.jpeg" alt="عرض 8">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.DyA2_P9efqqt1h13-6p1_a3wWmtpZbTi7NOFXSnF7S4.jpeg" alt="عرض 9">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.HS5ci1nbePJZj9GTvzbAjaw3w1W6Zho1RuCqRf0jpYQ.jpeg" alt="عرض 10">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.HblHmxMffMGvoEHINBN5SiBb7YI-jviKiqThgvy5Azo.jpeg" alt="عرض 11">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.Jg8Wld30nhfMwF2YBwenaBtUaw8aF9-ETLxZDTscb80.jpeg" alt="عرض 12">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.L065dakyrBKW3QPgoiliAqDdb_swJmI4CiDe6RJODNA.jpeg" alt="عرض 13">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.MzbjzyQpDR6A4_p6BMcv-U8v_UiVqEcY7y0Pw0rGs6w.jpeg" alt="عرض 14">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.V2nQOHSU7UasWHbepSGGT7trW_2G1fju3XwHhihiTb8.jpeg" alt="عرض 15">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.XWLhe6vAAcnVdXFhohOFi6LzE4mNx5tbdV1cqWNTKh8.jpeg" alt="عرض 16">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.ZzyFLVFIW5YvWapYBC-wCz1FeAb6fxeC_EgLf2m70pk.jpeg" alt="عرض 17">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.c-lPTHFFPblfOUPGpsiQVuK-ds_HhEfOx_hoSFtofPY.jpeg" alt="عرض 18">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.jhbitAOq1Zx6Nqt1YvjzMWCKT3d-qgjqjR4kf_aAYtM.jpeg" alt="عرض 19">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.mvqI61OVxKLkT5wSVmnjaYfjjL7hHsYVcXwmhr_Pf7w.jpeg" alt="عرض 20">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.nmIqt5DRY-Lx1v3ZtYKw9Lxm-JSANHh9nwPsAgZB-AY.jpeg" alt="عرض 21">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.oowHg5gnVOvVSXlxFPnxjF86ktAWr7uURM18vcsCrmE.jpeg" alt="عرض 22">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.qoOtHEbs4xOzd9AFpOUvUQ8ErG_2-o9LGkiJapTd5Sw.jpeg" alt="عرض 23">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.t8l3HIBg0KnIG22-aJ_3_1qfsQOOmxStzjb-CW7Z70g.jpeg" alt="عرض 24">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.tPK0MENcwVUn5WNML5G3v-9tNNaPSzQI1TdhWlkWV9g.jpeg" alt="عرض 25">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.tva6CkdurkNUD7_xGd2DSt1MTXijqM-63mR2syx-5IE.jpeg" alt="عرض 26">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.ue20DC3GMKG3apJJvFjhaUrp9hEdNmD7dXojmIVf1ag.jpeg" alt="عرض 27">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
+    <div class="gallery-item">
+      <img src="att.xX8hPggFZ1zqhGzRIzWk7ZBuTo-zwONQ7IB0RKXSuWs.jpeg" alt="عرض 28">
+      <a class="order-btn" target="_blank"
+         href="https://wa.me/213549839677?text=السلام%20عليكم،%20أريد%20طلب%20هذا%20العرض">
+        🛒 اطلب الآن
+      </a>
+    </div>
+
   </div>
+</section>
 
-
-  <!-- HERO -->
-  <section class="hero">
-
-    <div class="badge">
-      🛰️ INFINITY SAT SERVICE
-    </div>
-
-    <h1>
-      ترفيهك يبدأ من هنا
-    </h1>
-
-    <p>
-      استمتع بخدماتنا واشتراكاتنا المتنوعة
-      بجودة عالية وتجديد سريع.
-    </p>
-
-    <div class="buttons">
-
-      <a href="#packages" class="btn primary">
-        🔥 شاهد الباقات
-      </a>
-
-      <a
-        href="https://wa.me/213549839677"
-        target="_blank"
-        class="btn secondary">
-        💬 تواصل معنا
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- STATS -->
-  <section class="stats">
-
-    <div class="stat">
-      <strong>4K</strong>
-      <span>جودة عالية</span>
-    </div>
-
-    <div class="stat">
-      <strong>24/7</strong>
-      <span>خدمة متواصلة</span>
-    </div>
-
-    <div class="stat">
-      <strong>⚡</strong>
-      <span>تجديد سريع</span>
-    </div>
-
-  </section>
-
-
-  <!-- PACKAGES -->
-  <section class="section" id="packages">
-
-    <div class="section-title">
-      <h2>📡 باقاتنا</h2>
-      <p>
-        اختر الاشتراك المناسب لك
-      </p>
-    </div>
-
-    <div class="packages">
-
-      <div class="package">
-
-        <h3>VIP</h3>
-
-        <div class="price">
-          500 دج
-        </div>
-
-        <p>
-          اشتراك شهري
-        </p>
-
-        <a
-          href="https://wa.me/213549839677"
-          target="_blank"
-          class="btn primary">
-          جدد الآن
-        </a>
-
-      </div>
-
-
-      <div class="package">
-
-        <h3>ELITE</h3>
-
-        <div class="price">
-          700 دج
-        </div>
-
-        <p>
-          اشتراك شهري مميز
-        </p>
-
-        <a
-          href="https://wa.me/213549839677"
-          target="_blank"
-          class="btn primary">
-          جدد الآن
-        </a>
-
-      </div>
-
-
-      <div class="package">
-
-        <h3>FUNDAM</h3>
-
-        <div class="price">
-          500 دج
-        </div>
-
-        <p>
-          اشتراك شهري
-        </p>
-
-        <a
-          href="https://wa.me/213549839677"
-          target="_blank"
-          class="btn primary">
-          جدد الآن
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PAYMENT -->
-  <section class="section">
-
-    <div class="payment">
-
-      <div class="section-title">
-        <h2>💳 طرق الدفع</h2>
-
-        <p>
-          نوفر لك عدة طرق للدفع
-        </p>
-      </div>
-
-      <div class="payment-items">
-
-        <div class="payment-item">
-          💰 CCP
-        </div>
-
-        <div class="payment-item">
-          📱 BaridiMob
-        </div>
-
-        <div class="payment-item">
-          💬 WhatsApp
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CTA -->
-  <section class="cta">
-
-    <h2>
-      🔥 جاهز للاستمتاع؟
-    </h2>
-
-    <p>
-      جدد اشتراكك الآن واستمتع بخدمات Infinity SAT Service.
-    </p>
-
-    <a
-      href="https://wa.me/213549839677"
-      target="_blank"
-      class="btn secondary">
-      💬 تجديد الاشتراك الآن
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    © 2026 Infinity SAT Service
-    <br>
-    جميع الحقوق محفوظة
-
-  </footer>
 <style>
-.gallery {
-  padding: 30px 15px;
+.gallery-section {
+  padding: 40px 15px;
   text-align: center;
 }
 
-.gallery h2 {
-  margin-bottom: 20px;
+.gallery-section h2 {
+  margin-bottom: 25px;
   font-size: 28px;
 }
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.gallery-grid img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: center bottom;
-  border-radius: 15px;
-  display: block;
-};
-}
-
-..gallery-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 15px;
-  display: block;
-}
 .gallery-item {
-  width: 100%;
-  overflow: hidden;
+  background: #fff;
   border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  padding-bottom: 12px;
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 260px;
+  object-fit: cover;
   display: block;
+}
 
-  /* قص علوي وسفلي */
-  margin-top: -80px;
-  margin-bottom: -80px;
+.order-btn {
+  display: block;
+  margin: 12px 15px 0;
+  padding: 12px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s;
 }
+
+.order-btn:hover {
+  transform: scale(1.03);
+  background: #20bd5a;
 }
-</st
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item img {
+    height: auto;
+  }
 }
 </style>
-
-<section class="gallery">
-  <h2>صور Infinity Sat Service</h2>
-
-  <div class="gallery-grid">
-    <img src="IMG_2377.png" alt="Infinity Sat Service">
-    <img src="IMG_2378.png" alt="Infinity Sat Service">
-    <img src="IMG_2379.png" alt="Infinity Sat Service">
-    <img src="IMG_2380.png" alt="Infinity Sat Service">
-    <img src="IMG_2381.png" alt="Infinity Sat Service">
-    <img src="IMG_2382.png" alt="Infinity Sat Service">
-    <img src="IMG_2383.png" alt="Infinity Sat Service">
-    <img src="IMG_2384.png" alt="Infinity Sat Service">
-    <img src="IMG_2385.png" alt="Infinity Sat Service">
-    <img src="IMG_2386.png" alt="Infinity Sat Service">
-    <img src="IMG_2387.png" alt="Infinity Sat Service">
-    <img src="IMG_2388.png" alt="Infinity Sat Service">
-    <img src="IMG_2389.png" alt="Infinity Sat Service">
-    <img src="IMG_2390.png" alt="Infinity Sat Service">
-    <img src="IMG_2391.png" alt="Infinity Sat Service">
-    <img src="IMG_2392.png" alt="Infinity Sat Service">
-    <img src="IMG_2393.png" alt="Infinity Sat Service">
-    <img src="IMG_2394.png" alt="Infinity Sat Service">
-    <img src="IMG_2395.png" alt="Infinity Sat Service">
-    <img src="IMG_2396.png" alt="Infinity Sat Service">
-    <img src="IMG_2397.png" alt="Infinity Sat Service">
-    <img src="IMG_2398.png" alt="Infinity Sat Service">
-    <img src="IMG_2399.png" alt="Infinity Sat Service">
-    <img src="IMG_2400.png" alt="Infinity Sat Service">
-    <img src="IMG_2401.png" alt="Infinity Sat Service">
-    <img src="IMG_2402.png" alt="Infinity Sat Service">
-    <img src="IMG_2403.png" alt="Infinity Sat Service">
-    <img src="IMG_2404.png" alt="Infinity Sat Service">
-    <img src="IMG_2405.png" alt="Infinity Sat Service">
-    <img src="IMG_2406.png" alt="Infinity Sat Service">
-    <img src="IMG_2407.png" alt="Infinity Sat Service">
-    <img src="IMG_2408.png" alt="Infinity Sat Service">
-    <img src="IMG_2409.png" alt="Infinity Sat Service">
-  </div>
-</section>
-</body>
-</html>
